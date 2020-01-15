@@ -1,4 +1,4 @@
-FROM node as build
+FROM node as gatsby-build
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
@@ -21,4 +21,4 @@ RUN npm run build
 
 FROM socialengine/nginx-spa as server
 
-COPY --from=build build/ /app
+COPY --from=gatsby-build ./build ./app

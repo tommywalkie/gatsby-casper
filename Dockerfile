@@ -4,9 +4,9 @@ RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
 WORKDIR /home/node/app
 
-RUN sudo apt-get update
-RUN sudo apt-get install libglu1
-RUN sudo apt-get install libxi6 libgconf-2-4
+RUN apt-get update
+RUN apt-get -y install libglu1
+RUN apt-get -y install libxi6 libgconf-2-4
 RUN ldconfig
 
 COPY ./package.json ./

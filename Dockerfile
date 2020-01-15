@@ -15,6 +15,8 @@ RUN npm install
 
 COPY . .
 
+RUN npm install gatsby@latest react@latest react-dom@latest
+
 RUN npm run build
 
 FROM socialengine/nginx-spa as server

@@ -6,11 +6,11 @@ WORKDIR /home/node/app
 
 COPY ./package*.json ./
 
-RUN yarn
+RUN npm install
 
 COPY . .
 
-RUN yarn build
+RUN npm run build
 
 FROM socialengine/nginx-spa as server
 

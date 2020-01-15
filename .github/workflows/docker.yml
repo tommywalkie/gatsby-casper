@@ -1,0 +1,23 @@
+name: Docker
+
+on: 
+  push:
+    branches:    
+      - master   
+
+jobs:
+
+  build:
+    name: Build/Publish the Docker image
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Publish the image on Github Packages registry
+      uses: matootie/github-docker@v1.0.1
+      with:
+        username: tommywalkie
+        personalAccessToken: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        imageName: blog
+        imageTag: nightly
+    - name: Show the result
+      run: docker images

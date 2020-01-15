@@ -19,4 +19,4 @@ RUN npm run build
 
 FROM socialengine/nginx-spa as server
 
-COPY --from=gatsby-build ./public ./app
+COPY --from=gatsby-build /home/node/app/public ./app
